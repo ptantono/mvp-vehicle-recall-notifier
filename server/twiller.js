@@ -2,12 +2,11 @@ const tw = require("./config.js");
 // console.log(`${tw.twilio_creds.sid},${tw.twilio_creds.auth}`);
 const client = require("twilio")(tw.twilio_creds.sid, tw.twilio_creds.auth);
 
-var sendSMS = toPhone => {
+var sendSMS = (toPhone, msg) => {
   console.log("toPhone => ", toPhone);
   client.messages
     .create({
-      body:
-        "Your vehicle has a recall. Please visit the following URL for further instructions",
+      body: `${msg}`,
       from: "+16263178548",
       to: `"${toPhone}"`
     })

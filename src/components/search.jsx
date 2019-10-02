@@ -110,7 +110,7 @@ export default function SearchBar() {
     toPhone = "+1" + values.textmask.replace(/\D+/g, "");
 
     axios
-      .post(`/${yr}/${make}/${model}`, {
+      .post("/vehicle", {
         year: yr,
         make: make,
         model: model,
